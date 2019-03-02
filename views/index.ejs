@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FAQ</title>
+    <% var i=0, j=0; %>
+</head>
+
+    <form action='/search-results' method='post'>
+      <input id="search" type="text" name="searchTerm" placeholder="What're you looking for ?">
+      <input id="search_submit" value="Search" type="submit">
+    </form>
+    <ul>
+      <% if(locals.results) { %>
+        <%  results.forEach( function( result ) { %>
+          <br>
+          <li>
+            <%= result._source.question %> <br>  <%= result._source.answer%>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
+  </body>
+</html>
